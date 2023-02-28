@@ -1,16 +1,20 @@
 const express = require('express');
-const router = express.Router();
+const router = new express.Router();
 
-const { handleError } = require('../utils/hof');
+const {handleError} = require('../utils/hof');
 
 
 const triangleController = require('../controllers/triangle.controller');
 
 router.get('/area', handleError(async (req, res) => {
-    const { sideA, sideB, sideC } = req.query;
+  const {sideA, sideB, sideC} = req.query;
 
-    const area = triangleController.getArea(parseInt(sideA), parseInt(sideB), parseInt(sideC));
-    res.send({ area });
+  const area = triangleController.getArea(
+      parseInt(sideA),
+      parseInt(sideB),
+      parseInt(sideC));
+
+  res.send({area});
 }));
 
 module.exports = router;
