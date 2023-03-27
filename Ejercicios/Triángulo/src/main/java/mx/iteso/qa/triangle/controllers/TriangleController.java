@@ -18,4 +18,9 @@ public class TriangleController {
         return triangleService.getArea(sideA, sideB, sideC);
     }
 
+    @GetMapping("/type")
+    public String getType(int sideA, int sideB, int sideC) {
+        return triangleService.getType(sideA, sideB, sideC);
+    }
+
 }
