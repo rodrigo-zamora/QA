@@ -21,7 +21,7 @@ public class GlobalExceptionHandler {
                 .stream().map(FieldError::getDefaultMessage)
                 .collect(Collectors.toList());
         Map<String, List<String>> errorMap = new HashMap<>();
-        errorMap.put("errors", errors);
+        errorMap.put("errors",errors);
         return new ResponseEntity<>(errorMap, HttpStatus.BAD_REQUEST);
     }
 }

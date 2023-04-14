@@ -17,7 +17,7 @@ public class TriangleTypeController {
     @Autowired
     private TriangleType triangleType;
 
-    @PostMapping(path = "/type")
+    @PostMapping(path="/type")
     ResponseEntity<TriangleTypeResponse> getTriangleType(
             @RequestBody @Valid TriangleDto triangle) {
         if (!triangle.isValidTriangle()) {

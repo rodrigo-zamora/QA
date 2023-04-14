@@ -20,6 +20,10 @@ public class TriangleTypeController {
     @PostMapping(path="/type")
     ResponseEntity<TriangleTypeResponse> getTriangleType(
             @RequestBody @Valid TriangleDto triangle) {
+        if (!triangle.isValidTriangle()) {
+            throw new IllegalArgumentException("The side lengths do not correspond to a real triangle");
+        }
+
         return new ResponseEntity<>(TriangleTypeResponse.builder()
                 .type(triangleType.getTriangleType(triangle)).build(), HttpStatus.OK);
     }

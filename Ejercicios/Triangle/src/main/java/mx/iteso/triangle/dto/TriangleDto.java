@@ -1,18 +1,28 @@
 package mx.iteso.triangle.dto;
 
+import jakarta.validation.constraints.Negative;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class TriangleDto {
 
-    @Positive(message = "sideA must be higher than 0")
+
+    @NotNull
+    @Positive
     Long sideA;
 
-    @Positive(message = "sideB must be higher than 0")
+    @NotNull
+    @Positive
     Long sideB;
 
-    @Positive(message = "sideC must be higher than 0")
+    @NotNull
+    @Positive
     Long sideC;
 
     public boolean isValidTriangle() {
